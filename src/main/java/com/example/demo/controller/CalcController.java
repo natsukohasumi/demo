@@ -15,10 +15,19 @@ public class CalcController {
     }
 
     @RequestMapping("receive-calc")
-    public String receiveCalc(String num1, String num2, Model model){
+    public String receiveCalc(Integer num1, Integer num2, String operator,Model model){
         model.addAttribute("num1", num1);
         model.addAttribute("num2", num2);
-        model.addAttribute("answer", Integer.parseInt(num1)+Integer.parseInt(num2));
+        if (operator == "add"){
+            model.addAttribute("answer", num1+num2);
+        } else if (operator == "subtract"){
+            model.addAttribute("answer", num1-num2);
+        } else if (operator == "multiple"){
+            model.addAttribute("answer", num1*num2);
+        } else {
+            model.addAttribute("answer", num1/num2);
+        }
+        
         return "result-calc";
 
     }
