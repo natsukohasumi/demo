@@ -18,16 +18,31 @@ public class CalcController {
     public String receiveCalc(Integer num1, Integer num2, String operator,Model model){
         model.addAttribute("num1", num1);
         model.addAttribute("num2", num2);
-        if (operator == "add"){
-            model.addAttribute("answer", num1+num2);
-        } else if (operator == "subtract"){
-            model.addAttribute("answer", num1-num2);
-        } else if (operator == "multiple"){
-            model.addAttribute("answer", num1*num2);
-        } else {
-            model.addAttribute("answer", num1/num2);
-        }
+
+        int result = switch (operator){
+            case "+" -> num1+num2;
+            case "-" -> num1-num2;
+            case "×" -> num1*num2;
+            case "÷" -> num1/num2;
+            default -> throw new IllegalArgumentException();
+
+        };
+        model.addAttribute("answer", result);
+
         
+        // if (operator.equals("+")){
+        //     model.addAttribute("answer", num1+num2);
+        // } else if (operator == "-"){
+        //     model.addAttribute("answer", num1-num2);
+        // } else if (operator == "×"){
+        //     model.addAttribute("answer", num1*num2);
+        // } else if(operator == "÷"){
+        //     model.addAttribute("answer", num1/num2);
+        // }
+        
+
+        model.addAttribute("operator", operator);
+    
         return "result-calc";
 
     }
