@@ -19,26 +19,26 @@ public class CalcController {
         model.addAttribute("num1", num1);
         model.addAttribute("num2", num2);
 
-        int result = switch (operator){
-            case "+" -> num1+num2;
-            case "-" -> num1-num2;
-            case "×" -> num1*num2;
-            case "÷" -> num1/num2;
-            default -> throw new IllegalArgumentException();
+        // int result = switch (operator){
+        //     case "+" -> num1+num2;
+        //     case "-" -> num1-num2;
+        //     case "×" -> num1*num2;
+        //     case "÷" -> num1/num2;
+        //     default -> throw new IllegalArgumentException();
 
-        };
-        model.addAttribute("answer", result);
+        // };
+        // model.addAttribute("answer", result);
 
         
-        // if (operator.equals("+")){
-        //     model.addAttribute("answer", num1+num2);
-        // } else if (operator == "-"){
-        //     model.addAttribute("answer", num1-num2);
-        // } else if (operator == "×"){
-        //     model.addAttribute("answer", num1*num2);
-        // } else if(operator == "÷"){
-        //     model.addAttribute("answer", num1/num2);
-        // }
+        if (operator.equals("+")){
+            model.addAttribute("answer", num1+num2);
+        } else if (operator.equals("-")){
+            model.addAttribute("answer", num1-num2);
+        } else if (operator.equals("×")){
+            model.addAttribute("answer", num1*num2);
+        } else if(operator.equals("÷")){
+            model.addAttribute("answer", num1/num2);
+        }
         
 
         model.addAttribute("operator", operator);

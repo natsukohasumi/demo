@@ -35,6 +35,12 @@ public class LoginController {
 
     @RequestMapping("/my-page-detail")
     public String  myPageDetail(){
+        if(session.getAttribute("email") == null || session.getAttribute("password")== null){
+            return "login-form";
+        }
         return "result-my-page";
     }
 }
+
+
+

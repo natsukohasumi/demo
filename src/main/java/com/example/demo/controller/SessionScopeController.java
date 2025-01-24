@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpSession;
 public class SessionScopeController {
 
     @Autowired
-    HttpSession session;
+    private HttpSession session;
 
     @RequestMapping("")
     public String index(){
